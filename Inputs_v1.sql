@@ -2,7 +2,6 @@
 /********************************************************
    ---|>         BASE DE VENTA QUE HACE CDP     <|----
 *********************************************************/        
-;
 
 SELECT   A.VCHPERIODO PERIODOVENTA, 
          A.VCHN_PLAN,
@@ -11,6 +10,7 @@ SELECT   A.VCHPERIODO PERIODOVENTA,
          A.VCHPACK_SIM_SIMPLE,
          b.NUMPERIODO_EJEC VCHPERIODOEJECUCION_CP, 
          B.NUMFLG_PERFILADO,
+         A.VCHVEP_FLAG_TOTAL,
          sum(A.NUMGROSS)NUMGROSS,
          sum(NUMRENTASINIGV_ORIG)NUMRENTASINIGV_ORIG, 
          sum(NUMRENTASINIGV_DEST) NUMRENTASINIGV_DEST, 
@@ -28,8 +28,8 @@ LEFT JOIN hom_cambioplan_rprt B
          A.VCHTERMINAL_TIPOEQUIPO,
          A.VCHPACK_SIM_SIMPLE,  
          VCHTIPO,
+         A.VCHVEP_FLAG_TOTAL,
          NUMPERIODO_EJEC
-;
 
 /********************************************************
    ---|>         BASE DE VENTA QUE RENUEVA    <|----
